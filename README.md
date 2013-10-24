@@ -1,7 +1,9 @@
 Tessellate
 ==========
 
-Small vanilla JavaScript module for gracefully removing elements from the page.
+Small vanilla JavaScript module for gracefully removing floating elements from the page.
+
+Install via npm: `npm install tessellate-js`.
 
 Overview
 ----------
