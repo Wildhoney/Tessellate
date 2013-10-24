@@ -18,8 +18,8 @@ Getting Started
 First you need to create a new instance of Tessellate for each container you want this behaviour on.
 
 ```javascript
-var colours     = $document.querySelector('section.colours'),
-    tessellate  = new $tessellate(colours);
+var colours     = document.querySelector('section.colours'),
+    tessellate  = new Tessellate(colours);
 ```
 
 And then whenever you remove an element, tell Tessellate which element you wish to remove, and the module will do the rest for you.

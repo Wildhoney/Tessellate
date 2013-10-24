@@ -14,6 +14,7 @@
         // Store a reference to the container, and create the ghosts
         // for its children.
         this.container = container;
+        this.container.classList.add('tessellate-container');
         this._createGhosts();
 
     };
@@ -86,8 +87,8 @@
                 entity.style.left    = ghost.offsetLeft + 'px';
 
                 // Add the position absolute to the ghost.
-                entity.classList.add('tessellateEntity');
-                ghost.classList.add('tessellateGhost');
+                entity.classList.add('tessellate-entity');
+                ghost.classList.add('tessellate-ghost');
 
             }
 
