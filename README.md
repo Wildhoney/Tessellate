@@ -3,6 +3,8 @@ Tessellate
 
 Small vanilla JavaScript module for gracefully removing floating elements from the page.
 
+<img src="https://travis-ci.org/Wildhoney/Tessellate.png?branch=master" />
+&nbsp;
 <img src="https://badge.fury.io/js/tessellate-js.png" />
 
 Install via npm: `npm install tessellate-js`.
