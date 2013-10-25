@@ -33,21 +33,48 @@
 
         /**
          * @method remove
-         * @param element {Object}
+         * @param entity {Object}
+         * Responsible for removing an element from the DOM, as well as its ghost, and then repositioning all of
+         * the elements in the DOM.
          * @return {Boolean}
          */
-        remove: function remove(element) {
+        remove: function remove(entity) {
 
             // Find the ID for the element to be removed, as well as its ghost.
-            var id      = element.getAttribute('data-tessellate-entity'),
-                ghost   = this.container.querySelector('*[data-tessellate-ghost="' + id + '"]');
+            var id      = entity.getAttribute('data-tessellate-ghost'),
+                ghost   = this.container.querySelector('*[data-tessellate-entity="' + id + '"]');
 
             // Remove both the current element and its related ghost.
+            entity.remove();
             ghost.remove();
-            element.remove();
 
-            this._reposition();
+            this.reposition();
             return true;
+
+        },
+
+        /**
+         * @method reposition
+         * Responsible for repositioning the elements based on their ghosts.
+         * @return {void}
+         */
+        reposition: function reposition() {
+
+            var ghosts = this._getChildren();
+
+            for (var index = 0, maxLength = ghosts.length; index < maxLength; index++) {
+
+                // Find the related ghosts, as well as the actual physical entities.
+                var ghost   = ghosts[index],
+                    id      = ghost.getAttribute('data-tessellate-ghost'),
+                    entity   = this.container.querySelector('*[data-tessellate-entity="' + id + '"]');
+
+                // Update their `top` and `left` properties based on the offset of their
+                // ghosts.
+                entity.style.top     = ghost.offsetTop + 'px';
+                entity.style.left    = ghost.offsetLeft + 'px';
+
+            }
 
         },
 
@@ -76,8 +103,8 @@
                 // Replace the `data-tessellate` attribute with the `data-tessellate-ghost`
                 // node, and add a class as well so that it can be hidden.
                 entity.removeAttribute('data-tessellate');
-                ghost.setAttribute('data-tessellate-entity', index);
-                entity.setAttribute('data-tessellate-ghost', index);
+                ghost.setAttribute('data-tessellate-ghost', index);
+                entity.setAttribute('data-tessellate-entity', index);
 
                 // Append the ghost to the container in the same order.
                 this.container.appendChild(entity);
@@ -89,31 +116,6 @@
                 // Add the position absolute to the ghost.
                 entity.classList.add('tessellate-entity');
                 ghost.classList.add('tessellate-ghost');
-
-            }
-
-        },
-
-        /**
-         * @method _reposition
-         * @return {void}
-         * @private
-         */
-        _reposition: function _reposition() {
-
-            var ghosts = this._getChildren();
-
-            for (var index = 0, maxLength = ghosts.length; index < maxLength; index++) {
-
-                // Find the related ghosts, as well as the actual physical entities.
-                var ghost   = ghosts[index],
-                    id      = ghost.getAttribute('data-tessellate-entity'),
-                    entity   = this.container.querySelector('*[data-tessellate-ghost="' + id + '"]');
-
-                // Update their `top` and `left` properties based on the offset of their
-                // ghosts.
-                entity.style.top     = ghost.offsetTop + 'px';
-                entity.style.left    = ghost.offsetLeft + 'px';
 
             }
 
