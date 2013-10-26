@@ -31,3 +31,5 @@ tessellate.remove(event.target);
 ```
 
 As a side note, it's not necessary to simply remove an element from the DOM ungracefully. You can dim its opacity or any other effect, but at the point of physical removal from the DOM, invoke `tessellate.remove`.
+
+Sometimes you may wish to reposition the nodes without removing a node &ndash; for instance of your node is simply hidden but never removed. For these cases, you can instead invoke `tessellate.reposition();` directly.
