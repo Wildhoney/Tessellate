@@ -69,7 +69,7 @@
                 // Find the related ghosts, as well as the actual physical entities.
                 var ghost   = ghosts[index],
                     id      = ghost.getAttribute('data-tessellate-ghost'),
-                    entity   = this.container.querySelector('*[data-tessellate-entity="' + id + '"]');
+                    entity  = this.container.querySelector('*[data-tessellate-entity="' + id + '"]');
 
                 // Update their `top` and `left` properties based on the offset of their
                 // ghosts.
