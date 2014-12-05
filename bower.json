@@ -1,0 +1,18 @@
+{
+  "name": "tessellate",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Wildhoney/Tessellate",
+  "authors": [
+    "Adam Timberlake <adam.timberlake@gmail.com>"
+  ],
+  "description": "Small vanilla JavaScript module for gracefully removing floating elements from the page.",
+  "main": "dist/tessellate.min.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
