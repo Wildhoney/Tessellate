@@ -25,16 +25,30 @@ module.exports = function(grunt) {
                     'dist/<%= pkg.buildName %>.css': ['module/Tessellate.css']
                 }
             }
+        },
+        copy: {
+            vendor: {
+                expand: true,
+                flatten: true,
+                src: ['module/*'],
+                dest: 'example/vendor/tessellate',
+                filter: 'isFile'
+            },
+            release: {
+                src: 'releases/<%= pkg.version %>.zip',
+                dest: 'releases/master.zip'
+            }
+
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.registerTask('test', ['jshint']);
-    //grunt.registerTask('build', ['uglify', 'cssmin', 'copy']);
-    grunt.registerTask('build', ['uglify', 'cssmin']);
-    grunt.registerTask('default', ['jshint', 'cssmin', 'uglify']);
+    grunt.registerTask('build', ['uglify', 'cssmin', 'copy']);
+    grunt.registerTask('default', ['test', 'build']);
 
 };

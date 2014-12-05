@@ -1,0 +1,9 @@
+.tessellate-container .tessellate-ghost {
+    opacity: 0;
+}
+
+.tessellate-container .tessellate-entity {
+    transition: .35s all cubic-bezier(0.85, 0.1, 0.85, 1);
+    position: absolute !important;
+    pointer-events: none;
+}
