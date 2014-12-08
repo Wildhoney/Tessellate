@@ -7,7 +7,7 @@ Small vanilla JavaScript module for gracefully removing floating elements from t
 &nbsp;
 <img src="https://badge.fury.io/js/tessellate-js.png" />
 
-**Demo:** http://wildhoney.io/tessellate/example
+**Demo:** http://tessellate-app.herokuap.com/
 
 * Install via npm: `npm install tessellate-js`.
 * Install via Bower: `bower install tessellate-js`.
