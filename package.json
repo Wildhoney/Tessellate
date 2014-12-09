@@ -1,7 +1,7 @@
 {
   "name": "tessellate-js",
   "buildName": "tessellate",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Small vanilla JavaScript module for gracefully removing floating elements from the page.",
   "main": "dist/tessellate.min.js",
   "directories": {
