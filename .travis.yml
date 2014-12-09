@@ -15,10 +15,10 @@ script:
   - grunt build
 
 deploy:
-  all_branches: true
-  skip_cleanup: true
   strategy: api
   provider: heroku
+  all_branches: true
+  skip_cleanup: true
   api_key:
     secure: ZylRRG3s+kRTTKsD2bbhDDUDHrUDNuFMXHq0o5iJcD/rLruygtkdmW/qyTgZUu/Ee6pvmcTiTkj7e8ekCXLtURARFnMGr9jI13MlQizXZLN0YuHnrQQoNmEi4H5uYs3zpcoD3t5OgZ5oiHkkKavcfQ8ljFwoTfo7ujSGr6k5r+E=
   app: tessellate-app
